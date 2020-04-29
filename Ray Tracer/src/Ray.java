@@ -6,7 +6,7 @@ public class Ray
 	public Ray(Point p, Vector v)
 	{
 		position=p;
-		direction=v;
+		direction=v.normalize();
 	}
 	public Point getPosition()
 	{
