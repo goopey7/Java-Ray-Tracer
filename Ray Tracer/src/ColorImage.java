@@ -8,13 +8,13 @@ public class ColorImage
 		width=newWidth;
 		height=newHeight;
 		colors = new Color[width][height];
-		for(Color[] h : colors)
+		for(int i=0; i<colors.length;i++)
 		{
-			for(Color color : h)
+			for(int j=0;j<colors[i].length;j++)
 			{
-				if(((int)(Math.random()*2)+1)==2)
-				color = new Color(255,0,255);
-				else color = new Color(0,0,0);
+				if(((int)(Math.random()*2))==1)
+				colors[i][j] = new Color(255,0,255);
+				else colors[i][j] = new Color(0,0,0);
 			}
 		}
 	}
