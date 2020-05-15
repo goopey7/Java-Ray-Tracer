@@ -11,8 +11,8 @@ import java.io.File;
 public class RaytracerDriver {
     public static void main(String[] args){
         //Size of the final image. This will DRAMATICALLY affect the runtime.
-        int xResolution = 800;
-        int yResolution = 600;
+        int xResolution = 1920;
+        int yResolution = 1080;
         
         //Create the scene. You can change this when you make other scene creation methods to select
         //which scene to render.
