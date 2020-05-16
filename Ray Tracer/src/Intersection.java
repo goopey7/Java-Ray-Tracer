@@ -1,4 +1,8 @@
-
+/**
+* Intersection
+*
+* @author Sam Collier
+*/
 public class Intersection 
 {
 	private Point position;

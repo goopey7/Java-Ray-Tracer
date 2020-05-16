@@ -1,4 +1,8 @@
-
+/**
+* 3D Vector
+*
+* @author Sam Collier
+*/
 public class Vector 
 {
 	private double dx,dy,dz;

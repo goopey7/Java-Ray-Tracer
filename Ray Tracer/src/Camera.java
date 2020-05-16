@@ -1,4 +1,8 @@
-
+/**
+* 3D Camera
+*
+* @author Sam Collier
+*/
 public class Camera
 {
 	private Point location;

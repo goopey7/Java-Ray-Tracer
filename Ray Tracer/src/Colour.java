@@ -1,8 +1,12 @@
-
-public class Color 
+/**
+* Colour
+*
+* @author Sam Collier
+*/
+public class Colour 
 {
 	private double r,g,b;
-	public Color(double newR, double newG, double newB)
+	public Colour(double newR, double newG, double newB)
 	{
 		r=newR;
 		g=newG;
@@ -20,13 +24,13 @@ public class Color
 	{
 		return b;
 	}
-	public Color add(Color c)
+	public Colour add(Colour c)
 	{
-		return new Color(r+c.getR(),g+c.getG(),b+c.getB());
+		return new Colour(r+c.getR(),g+c.getG(),b+c.getB());
 	}
-	public Color scale(double scalar)
+	public Colour scale(double scalar)
 	{
-		return new Color(r*scalar,g*scalar,b*scalar);
+		return new Colour(r*scalar,g*scalar,b*scalar);
 	}
 	public int toARGB()
 	{

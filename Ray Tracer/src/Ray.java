@@ -1,4 +1,8 @@
-
+/**
+* Ray
+*
+* @author Sam Collier
+*/
 public class Ray 
 {
 	private Point position;

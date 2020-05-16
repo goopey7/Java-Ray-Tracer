@@ -1,10 +1,14 @@
+/**
+* Testing JCuda by adding two big arrays
+*
+* @author Sam Collier
+*/
 import jcuda.Pointer;
 import jcuda.Sizeof;
 import jcuda.driver.*;
 
 import static jcuda.driver.JCudaDriver.*;
 
-// Probably won't be useful for 
 public class JCudaMatrixAdd
 {
 	public static void main(String[] args)
@@ -82,7 +86,7 @@ public class JCudaMatrixAdd
         
         // Call the kernel function.
         int blockSizeX = 256;
-        int gridSizeX = (int)Math.ceil((double)arraySize/blockSizeX);
+        int gridSizeX = (arraySize+blockSizeX-1)/blockSizeX;
         timeElapsed = System.currentTimeMillis();
         cuLaunchKernel(function,
                 gridSizeX,  1, 1,      // Grid dimension

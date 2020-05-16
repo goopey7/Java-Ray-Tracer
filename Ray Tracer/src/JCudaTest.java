@@ -1,4 +1,8 @@
-
+/**
+* Just making sure it works!
+*
+* @author Sam Collier
+*/
 import jcuda.*;
 import jcuda.runtime.*;
 public class JCudaTest

@@ -1,3 +1,8 @@
+/**
+* Scene
+*
+* @author Sam Collier
+*/
 import java.util.ArrayList;
 
 public class Scene
@@ -17,9 +22,9 @@ public class Scene
 	{
 		surfaces.add(s);
 	}
-	public ColorImage render(int xRes, int yRes)
+	public ColourImage render(int xRes, int yRes)
 	{
-		ColorImage image=new ColorImage(xRes,yRes);
+		ColourImage image=new ColourImage(xRes,yRes);
 		for(int i=0;i<image.getWidth();i++)
 		{
 			for(int j=0;j<image.getHeight();j++)
@@ -31,7 +36,7 @@ public class Scene
 				{
 					if(s.intersect(ray)!=null)
 					{
-						image.setColor(i, j, new Color(0,157,255));
+						image.setColour(i, j, new Colour(0,157,255));
 					}
 				}
 			}
