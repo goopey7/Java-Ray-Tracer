@@ -1,4 +1,5 @@
 *.jar
-RayTracer
+*.png
+*.ptx
 data
 bin
