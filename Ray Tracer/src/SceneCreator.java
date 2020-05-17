@@ -27,7 +27,7 @@ public class SceneCreator {
        // s.addSurface(s3);
         
         //Each triangle takes 3 Points (its vertexes), and a material.
-        Surface t1 = new CustomMesh("data/Mark 42.obj",new Point(0,0,-20),null);
+        Surface t1 = new CustomMesh("data/Mark 42.obj",new Point(0,0,-10),null);
         s.addSurface(t1);
         Surface floor = new Triangle(new Point(0,-5,0), new Point(3000,-5,-1000), new Point(-3000,-5,-1000), null);
         //s.addSurface(floor);

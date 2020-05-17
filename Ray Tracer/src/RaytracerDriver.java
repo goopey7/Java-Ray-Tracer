@@ -6,14 +6,13 @@ import java.io.IOException;
 /**
  * Driver for the various stages of the image generation and saving process.
  * 
- * @author Ben Farrar
- * @version 2019.05.22
+ * @author Ben Farrar with a bit of pizzazz from Sam Collier
  */
 public class RaytracerDriver {
     public static void main(String[] args) throws IOException{
         //Size of the final image. This will DRAMATICALLY affect the runtime.
-        int xResolution = 1920;
-        int yResolution = 1080;
+        final int xResolution = 1920;
+        final int yResolution = 1080;
         
         //Create the scene. You can change this when you make other scene creation methods to select
         //which scene to render.
@@ -22,7 +21,9 @@ public class RaytracerDriver {
         
         //Render the scene into a ColourImage
         System.out.println("Rendering image...");
+        long elapsed=System.currentTimeMillis();
         ColourImage image = s.render(xResolution,yResolution);
+        System.out.println("Rendered in "+((System.currentTimeMillis()-elapsed)/1000)+" seconds");
         
         //Save the image out as a png
         System.out.println("Saving file...");
