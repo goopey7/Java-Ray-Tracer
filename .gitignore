@@ -1,5 +1,6 @@
 *.jar
 *.png
-*.ptx
+.project
+.classpath
 data
 bin

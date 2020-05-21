@@ -32,6 +32,19 @@ public class Colour
 	{
 		return new Colour(r*scalar,g*scalar,b*scalar);
 	}
+	public Colour shade(Colour c)
+	{
+		return new Colour(c.getR()*r,c.getG()*g,c.getB()*b);
+	}
+	public Colour tint(Colour c)
+	{
+		return new Colour(r+(1-r)*c.getR(),g+(1-g)*c.getG(),b+(1-b)*c.getB());
+	}
+	public boolean isBlack()
+	{
+		if(r==0&&g==0&&b==0)return true;
+		return false;
+	}
 	public int toARGB()
 	{
         int ir = (int)(Math.min(Math.max(r,0),1) * 255 + 0.1);

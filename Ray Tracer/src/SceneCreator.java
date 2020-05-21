@@ -17,20 +17,20 @@ public class SceneCreator {
                                 xResolution/yResolution ); // aspect ratio
         Scene s = new Scene(cam);
         
-        //Each sphere takes a Point (its center), the radius, and a material.
+        //Each sphere takes a Point (its centre), the radius, and a material.
         //For now, since we have not implemented the Material classes, we simply say they are null.
         Surface s1 = new Sphere(new Point(0,0,-20),3, null);
-      //  s.addSurface(s1);
+        //s.addSurface(s1);
         Surface s2 = new Sphere(new Point(0,4,-15),1, null);
-       // s.addSurface(s2);
+        //s.addSurface(s2);
         Surface s3 = new Sphere(new Point(5,0,-20),1.5, null);
-       // s.addSurface(s3);
+        //s.addSurface(s3);
         
         //Each triangle takes 3 Points (its vertexes), and a material.
         Surface t1 = new CustomMesh("data/Mark 42.obj",new Point(0,0,-10),null);
         s.addSurface(t1);
         Surface floor = new Triangle(new Point(0,-5,0), new Point(3000,-5,-1000), new Point(-3000,-5,-1000), null);
-        //s.addSurface(floor);
+        s.addSurface(floor);
         
         return s;
     }

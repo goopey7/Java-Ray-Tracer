@@ -12,11 +12,18 @@ import de.javagl.obj.Obj;
 import de.javagl.obj.ObjReader;
 import de.javagl.obj.ObjUtils;
 
+import jcuda.Pointer;
+import jcuda.Sizeof;
+import jcuda.driver.*;
+
+import static jcuda.driver.JCudaDriver.*;
+
 public class CustomMesh extends Surface
 {
 	public ArrayList<Triangle> triangles;
 	public Point location;
     public Material mat;
+    public int type;
     
     //Minimum distance for a valid collision. This prevents the sphere's rays from colliding with itself.
     public static double EPSILON = 1e-6;
@@ -26,13 +33,14 @@ public class CustomMesh extends Surface
     	triangles=new ArrayList<Triangle>();
     	mat = m;
     	location=pos;
-        
+        type=0;
+    	
     	// Read an OBJ file
         InputStream objInputStream = new FileInputStream(objFileLocation);
         Obj obj = ObjUtils.triangulate(ObjReader.read(objInputStream));
         
         // Fill the triangles ArrayList with triangles
-        float[] vertices=new float[9];
+        float[] vertices=new float[9]; // Triangles have 3 vertices, vertices have 3 components
         int ind=0;
         for(int i=0;i<obj.getNumFaces();i++)
         {
@@ -48,14 +56,16 @@ public class CustomMesh extends Surface
         	}
         	ind=0;
         	triangles.add(new Triangle(
-        			new Point(vertices[0],vertices[1],vertices[2]).add(location),
-        			new Point(vertices[3],vertices[4],vertices[5]).add(location),
+        			new Point(vertices[0],vertices[1],vertices[2]).add(location), //Change relative coordinates to world coordinates
+        			new Point(vertices[3],vertices[4],vertices[5]).add(location), //By adding the "location"
         			new Point(vertices[6],vertices[7],vertices[8]).add(location),
         			null));
         }
+        System.out.println("Loaded "+triangles.size()+" triangle 3D Model");
     }
 
-    
+    public int getType() {return type;}
+    public Point getMeshLocation() {return location;}
 	public Intersection intersect(Ray ray)
 	{
 		for(Triangle tri:triangles)
@@ -85,4 +95,5 @@ public class CustomMesh extends Surface
 		}
 		return null;
 	}
+	
 }

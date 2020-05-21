@@ -16,9 +16,7 @@ public class ColourImage
 		{
 			for(int j=0;j<colours[i].length;j++)
 			{
-				if(((int)(Math.random()*2))==1)
-				colours[i][j] = new Colour(255,0,255);
-				else colours[i][j] = new Colour(0,0,0);
+				colours[i][j] = new Colour(0,0,0);
 			}
 		}
 	}

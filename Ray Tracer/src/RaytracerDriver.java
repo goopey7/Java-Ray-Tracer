@@ -9,7 +9,8 @@ import java.io.IOException;
  * @author Ben Farrar with a bit of pizzazz from Sam Collier
  */
 public class RaytracerDriver {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException
+    {
         //Size of the final image. This will DRAMATICALLY affect the runtime.
         final int xResolution = 1920;
         final int yResolution = 1080;
@@ -22,8 +23,8 @@ public class RaytracerDriver {
         //Render the scene into a ColourImage
         System.out.println("Rendering image...");
         long elapsed=System.currentTimeMillis();
-        ColourImage image = s.render(xResolution,yResolution);
-        System.out.println("Rendered in "+((System.currentTimeMillis()-elapsed)/1000)+" seconds");
+        ColourImage image = s.render(xResolution,yResolution,true);
+        System.out.println("Rendered in "+((double)(System.currentTimeMillis()-elapsed)/1000)+" seconds");
         
         //Save the image out as a png
         System.out.println("Saving file...");
@@ -44,9 +45,10 @@ public class RaytracerDriver {
     /**
      * Reads in each pixel from a ColourImage, and then writes the image out to a PNG file.
      */
-    public static void saveImage(String filename, ColourImage image){
-        try {
-            
+    public static void saveImage(String filename, ColourImage image)
+    {
+        try 
+        {
             BufferedImage bi = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
             for(int x = 0; x < image.getWidth(); x++) {
                 for (int y = 0; y < image.getHeight(); y++) {
@@ -56,32 +58,10 @@ public class RaytracerDriver {
                 }
             }
             ImageIO.write(bi, "PNG", new File(filename));
-            
-        } catch(Exception e) {
+        } 
+        catch(Exception e) 
+        {
             System.out.println("Problem saving image: " + filename);
-            System.out.println(e);
-            System.exit(1);
-        }
-    }
-    
-    /**
-     * Simpler version of the saveImage method for testing. Doesn't require integration with ColourImage, just writes
-     * a gradient of colours out to an image to make sure the BufferedImage, ImageIO, and File libraries are working
-     * as expected.
-     */
-    public static void saveTestImage(){
-        try {
-            
-               BufferedImage biTest = new BufferedImage(250,200,BufferedImage.TYPE_INT_RGB);
-               for(int x = 0; x < 250; x++){
-                   for(int y = 0; y < 200; y++){
-                       biTest.setRGB(x,200-1-y,(x << 16) | (y << 8) | (0 << 0));
-                    }
-                }
-                ImageIO.write(biTest, "PNG", new File("testGradient.png"));
-                
-        } catch(Exception e) {
-            System.out.println("Problem saving test gradient image");
             System.out.println(e);
             System.exit(1);
         }
