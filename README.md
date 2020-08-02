@@ -1,4 +1,6 @@
-# Java Ray Tracer
+# Discontinued! I abandoned this project and completely re-did it from the ground up in CUDA
+# [Check out my other repository](https://github.com/goopey7/CUDA-RayTracer)
+## Java Ray Tracer
 
 
 ## Progress Image
@@ -20,4 +22,4 @@ If you want to be render with the GPU, here's what you're going to need:
 
 
 ## Credit
-Ben Farrar
+Ben Farrar - AP CSA Teacher
